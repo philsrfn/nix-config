@@ -19,7 +19,6 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.phil = { pkgs, ... }: {
-            # Hier erzwingen wir die Pfade direkt
             home.username = "phil";
             home.homeDirectory = "/Users/phil";
             home.stateVersion = "24.11";

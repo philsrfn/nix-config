@@ -1,20 +1,29 @@
 { pkgs, ... }: {
   nixpkgs.hostPlatform = "aarch64-darwin";
+
   system.stateVersion = 6;
   system.primaryUser = "phil";
+
   users.users.phil = {
     name = "phil";
     home = "/Users/phil";
   };
 
-  # Homebrew Konfiguration
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
     casks = [
       "iterm2"
       "whatsapp"
-      "bitwarden"
+      "raycast"
+      "orbstack"
+      "postman"
+      "firefox"
+      "discord"
+      "spotify"
+      "visual-studio-code" 
+      "vlc"
+      "stats"
     ];
     masApps = {
       "Xcode" = 497799835;
@@ -22,14 +31,35 @@
   };
 
   system.defaults = {
-    dock.autohide = true;
-    finder.AppleShowAllExtensions = true;
-    NSGlobalDomain.AppleInterfaceStyle = "Dark";
+    dock = {
+      autohide = true;
+      tilesize = 48;
+      persistent-apps = [
+        "/Applications/Firefox.app"
+        "/Applications/iTerm.app"
+        "/Applications/Spotify.app"
+        "/Applications/Discord.app"
+        "/System/Applications/Mail.app"
+      ];
+      show-recents = false;
   };
-  
-  security.pam.services.sudo_local.touchIdAuth = true;
+    
+    finder.AppleShowAllExtensions = true;
+    finder.ShowPathbar = true;
+    
+    NSGlobalDomain.AppleInterfaceStyle = "Dark";
+    
+    NSGlobalDomain.KeyRepeat = 2;
+    NSGlobalDomain.InitialKeyRepeat = 15;
+    
+    # Trackpad: Tippen statt Klicken
+    trackpad.Clicking = true;
+  };
 
- # nix.settings.experimental-features = "nix-command flakes";
- # nix.settings.auto-optimise-store = true;
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
+  security.pam.services.sudo_local.touchIdAuth = true;
   nix.enable = false;
 }
