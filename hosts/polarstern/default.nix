@@ -54,6 +54,8 @@
     
     # Trackpad: Tippen statt Klicken
     trackpad.Clicking = true;
+
+    controlcenter.BatteryShowPercentage = true;
   };
 
   fonts.packages = with pkgs; [
