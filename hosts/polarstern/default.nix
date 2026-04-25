@@ -36,6 +36,7 @@
       autohide = true;
       tilesize = 48;
       persistent-apps = [
+        "/System/Applications/Apps.app"
         "/Applications/Firefox.app"
         "/Applications/iTerm.app"
         "/Applications/Spotify.app"

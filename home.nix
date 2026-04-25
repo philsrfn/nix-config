@@ -74,6 +74,11 @@
         user = "git";
         identityFile = "~/.ssh/id_ed25519";
       };
+      "otc" = {
+        hostname = "164.30.69.112";
+        user = "ubuntu";
+        identityFile = "~/.ssh/id_ed25519";
+      };
     };
   };
 
