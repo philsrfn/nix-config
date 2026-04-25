@@ -22,6 +22,10 @@ home.packages = with pkgs; [
     starship
     eza
     zoxide
+
+    cmake
+    gnumake
+    ninja
   ];
 
 programs.direnv = {

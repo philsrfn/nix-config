@@ -24,6 +24,7 @@
       "visual-studio-code" 
       "vlc"
       "stats"
+      "obsidian" # Neu hinzugefügt
     ];
     masApps = {
       "Xcode" = 497799835;
@@ -42,20 +43,28 @@
         "/System/Applications/Mail.app"
       ];
       show-recents = false;
-  };
+    };
     
-    finder.AppleShowAllExtensions = true;
-    finder.ShowPathbar = true;
+    finder = { # Refaktorisiert in Block-Schreibweise
+      AppleShowAllExtensions = true;
+      ShowPathbar = true;
+      AppleShowAllFiles = true; # Neu: Versteckte Dateien anzeigen
+    };
     
-    NSGlobalDomain.AppleInterfaceStyle = "Dark";
+    NSGlobalDomain = { # Refaktorisiert in Block-Schreibweise
+      AppleInterfaceStyle = "Dark";
+      AppleShowAllFiles = true;
+      KeyRepeat = 2;
+      InitialKeyRepeat = 15;
+    };
     
-    NSGlobalDomain.KeyRepeat = 2;
-    NSGlobalDomain.InitialKeyRepeat = 15;
-    
-    # Trackpad: Tippen statt Klicken
-    trackpad.Clicking = true;
+    trackpad = { # Refaktorisiert
+      Clicking = true;
+    };
 
-    controlcenter.BatteryShowPercentage = true;
+    controlcenter = { # Refaktorisiert
+      BatteryShowPercentage = true;
+    };
   };
 
   fonts.packages = with pkgs; [
