@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-home.packages = with pkgs; [
+  home.packages = with pkgs; [
     # Core
     git
     neovim
@@ -9,26 +9,25 @@ home.packages = with pkgs; [
     ruff
     httpie
     nodejs_20
-
     swiftlint
 
+    cmake
+    gnumake
+    ninja
+
+    # Utilities
     gh
     jq
     tree
     btop
     pandoc
-
     fzf
     starship
     eza
     zoxide
-
-    cmake
-    gnumake
-    ninja
   ];
 
-programs.direnv = {
+  programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
     package = pkgs.direnv.overrideAttrs (oldAttrs: {
@@ -41,7 +40,6 @@ programs.direnv = {
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    
     shellAliases = {
       nixswitch = "sudo darwin-rebuild switch --flake ~/.config/nix-config#polarstern";
       nixconfig = "cd ~/.config/nix-config && nvim";
@@ -78,18 +76,17 @@ programs.direnv = {
       };
     };
   };
+
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
   };
 
-  # Zoxide (smartes cd)
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
   };
 
-  # FZF (Schnellsuche)
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;

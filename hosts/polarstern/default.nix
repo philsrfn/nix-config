@@ -24,7 +24,7 @@
       "visual-studio-code" 
       "vlc"
       "stats"
-      "obsidian" # Neu hinzugefügt
+      "obsidian"
     ];
     masApps = {
       "Xcode" = 497799835;
@@ -45,24 +45,24 @@
       show-recents = false;
     };
     
-    finder = { # Refaktorisiert in Block-Schreibweise
+    finder = {
       AppleShowAllExtensions = true;
       ShowPathbar = true;
-      AppleShowAllFiles = true; # Neu: Versteckte Dateien anzeigen
+      AppleShowAllFiles = true;
     };
     
-    NSGlobalDomain = { # Refaktorisiert in Block-Schreibweise
+    NSGlobalDomain = {
       AppleInterfaceStyle = "Dark";
       AppleShowAllFiles = true;
       KeyRepeat = 2;
       InitialKeyRepeat = 15;
     };
     
-    trackpad = { # Refaktorisiert
+    trackpad = {
       Clicking = true;
     };
 
-    controlcenter = { # Refaktorisiert
+    controlcenter = {
       BatteryShowPercentage = true;
     };
   };
